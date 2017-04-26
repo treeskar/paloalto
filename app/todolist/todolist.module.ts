@@ -6,11 +6,13 @@ import {CommonModule} from "@angular/common";
 import {TodoListService} from "./todo-list.service";
 import {TodoListComponent} from "./todo-list.component";
 import {TaskComponent} from "./todo-task.component";
+import {ValuesPipe} from "../custom.pipe";
 
 @NgModule({
     declarations:[
         TodoListComponent,
-        TaskComponent
+        TaskComponent,
+        ValuesPipe
     ],
     /*providers   :[
         TodoListService

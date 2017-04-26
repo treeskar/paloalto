@@ -10,7 +10,7 @@ export class TodoListService{
     add(desc:string){
         let task = new TodoTask(desc);
         this.tasks.push(task);
-
+debugger;
         this.tasks2.set(task.id,task);
     }
 
@@ -25,7 +25,12 @@ export class TodoListService{
         return this.tasks.filter( t => t.isDone ).length;
     }
 
-    update(){
+    update($event:MouseEvent){
+
+        $event.stopPropagation();
+
+        //$event.preventDefault();
+
         let result:TodoTask[] = [];
 
         this.tasks.forEach(t =>{

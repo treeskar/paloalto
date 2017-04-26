@@ -11,8 +11,9 @@ import {Component, VERSION} from "@angular/core";
     }
   `],
   template: `
-    <div>       
-        <h1>Hello world ${VERSION.full}</h1>
+    <div (click)="log($event)">       
+        <h1 [highlight]="color" >Hello world ${VERSION.full}</h1>
+        <button (click)="color='green'">green</button>
         {{name}}
         <div (click)="name = name + '!'" [innerHtml]="'<h1>EEEE</h1>'+name"></div>
        
@@ -31,4 +32,17 @@ import {Component, VERSION} from "@angular/core";
 `})
 export class AppComponent {
     name:string = 'eyal vardi';
+
+    _color:string = 'blue';
+    /*@Input()*/
+    set color(value){ this._color = value; }
+    get color(){
+        return this._color;
+    }
+
+
+
+    log($event){
+        console.log(`event: ${JSON.stringify(event)}`);
+    }
 }

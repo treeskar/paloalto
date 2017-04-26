@@ -17,7 +17,7 @@ import {TodoTask} from "./todoTask.model";
   `],
   template: `
 <div class="todo">
- <h3>Todo List Demo <button (click)="service.update()">update</button></h3>   
+ <h3>Todo List Demo <button (click)="service.update($event)">update</button></h3>   
  desc: <input type="text" #i/> <button (click)="add(i.value)">Add Task</button>
  <hr>   
 
@@ -47,5 +47,7 @@ export class TodoListComponent {
     add(desc:string){
         this.service.add(desc);
     }
+
+
 
 }

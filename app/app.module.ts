@@ -7,11 +7,15 @@ import {BrowserModule} from "@angular/platform-browser";
 import {CounterComponent} from "./counter.component";
 import {TodoListModule} from "./todolist/todolist.module";
 import {TabsModule} from "./tabs/tabs.module";
+import {HighlightDirective} from "./highlight.directive";
+import {ValuesPipe} from "./custom.pipe";
 
 @NgModule({
     declarations:[
         AppComponent,
-        CounterComponent
+        CounterComponent,
+        HighlightDirective
+
     ],
     providers   :[],
     bootstrap   :[
