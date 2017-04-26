@@ -5,11 +5,15 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
 
 @Component({
   selector: 'counter', 
-  styles : [],
+  styles : [`
+    .cc{
+        font-size: 12px;
+    }
+  `],
   template: `
 <div>
   <button (click)="up()">+</button>
-  <span>{{value}}</span>
+  <span [style.font-size]="value+'px'">{{value}}</span>
   <button (click)="down()">-</button>  
 </div>
 `})
