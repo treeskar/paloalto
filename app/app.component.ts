@@ -15,6 +15,7 @@ import {Component, VERSION} from "@angular/core";
         <h1>Hello world ${VERSION.full}</h1>
         {{name}}
         <div (click)="name = name + '!'" [innerHtml]="'<h1>EEEE</h1>'+name"></div>
+        <counter></counter>
     </div>
 `})
 export class AppComponent {

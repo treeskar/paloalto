@@ -4,10 +4,12 @@
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {BrowserModule} from "@angular/platform-browser";
+import {CounterComponent} from "./counter.component";
 
 @NgModule({
     declarations:[
-        AppComponent
+        AppComponent,
+        CounterComponent
     ],
     providers   :[],
     bootstrap   :[
