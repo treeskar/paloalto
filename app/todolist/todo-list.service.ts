@@ -24,4 +24,17 @@ export class TodoListService{
     get totalIsDone(){
         return this.tasks.filter( t => t.isDone ).length;
     }
+
+    update(){
+        let result:TodoTask[] = [];
+
+        this.tasks.forEach(t =>{
+            result.push({
+                id: t.id,
+                isDone: t.isDone,
+                desc: t.desc+'!'
+            });
+        });
+        this.tasks = result;
+    }
 }

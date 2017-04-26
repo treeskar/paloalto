@@ -17,13 +17,14 @@ import {TodoTask} from "./todoTask.model";
   `],
   template: `
 <div class="todo">
- <h3>Todo List Demo</h3>   
+ <h3>Todo List Demo <button (click)="service.update()">update</button></h3>   
  desc: <input type="text" #i/> <button (click)="add(i.value)">Add Task</button>
  <hr>   
 
      <task 
-             *ngFor="let task of tasks"
+             *ngFor="let task of tasks; trackBy: trackByFn"
              [source]="task">
+         
      </task>
 
  <hr>
@@ -37,6 +38,11 @@ export class TodoListComponent {
     }
 
     constructor(private service:TodoListService){}
+
+    trackByFn(tab){
+        return tab.id;
+    }
+
 
     add(desc:string){
         this.service.add(desc);
