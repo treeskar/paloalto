@@ -5,6 +5,7 @@ import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {CounterComponent} from "./counter.component";
+import {TodoListModule} from "./todolist/todolist.module";
 
 @NgModule({
     declarations:[
@@ -16,7 +17,8 @@ import {CounterComponent} from "./counter.component";
         AppComponent
     ],
     imports     :[
-        BrowserModule
+        BrowserModule,
+        TodoListModule
     ],
     exports     :[]
 })

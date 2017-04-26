@@ -1,7 +1,7 @@
 /**
  * Created by Eyal on 26/04/2017.
  */
-import {Component} from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 
 @Component({
   selector: 'counter', 
@@ -15,11 +15,26 @@ import {Component} from "@angular/core";
 `})
 export class CounterComponent {
     value:number = 10;
+    @Output() onValueChange: EventEmitter<number> = new EventEmitter();
+
+    @Input() set init(val){
+        this.value = val;
+    }
+    private _step:number;
+    @Input()
+    set step(value){
+        this._step = value;
+    }
+    get step(){
+        return this._step;
+    }
+
 
     up(){
-        this.value++;
+        this.value+=this.step;
+        this.onValueChange.emit(this.value);
     }
     down(){
-        this.value--;
+        this.value-=this.step;
     }
 }
