@@ -10,6 +10,8 @@ import {TabsModule} from "./tabs/tabs.module";
 import {HighlightDirective} from "./highlight.directive";
 import {ValuesPipe} from "./custom.pipe";
 import {MyFormsModule} from "./forms/myForms.module";
+import {HttpModule} from "@angular/http";
+import {UsersModule} from "./users/users.module";
 
 @NgModule({
     declarations:[
@@ -24,9 +26,13 @@ import {MyFormsModule} from "./forms/myForms.module";
     ],
     imports     :[
         BrowserModule,
+        HttpModule,
+
+        // my modules
         TodoListModule,
         TabsModule,
-        MyFormsModule
+        MyFormsModule,
+        UsersModule
     ],
     exports     :[]
 })

@@ -20,6 +20,9 @@ import {Component, VERSION} from "@angular/core";
         
         <tabs>
             <h4>tabs...</h4>
+            <tab title="users">
+                <users [num]="10"></users>
+            </tab>
             <tab title="counter">
                 <counter [init]="100" [step]="3" (onValueChange)="name = name + $event"></counter>
             </tab>
