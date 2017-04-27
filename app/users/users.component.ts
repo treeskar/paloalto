@@ -7,12 +7,14 @@ import {UserBl} from "./users.bl.service";
 
 @Component({
   selector: 'users',
+  providers:[],
   styles : [],
   template: `
 <div>
   <h3>Users {{users?.length}}</h3>  
   <user   [source]="user"
-          *ngFor="let user of users"></user>
+          *ngFor="let user of users">      
+  </user>
 </div>
 `})
 export class UsersComponent{
@@ -29,9 +31,9 @@ export class UsersComponent{
         //this.load(this.num);
        // this.users = userBl.users;
     }
-    /*ngOnInit(){
-        this.load(this.num);
-    }*/
+    ngOnInit(){
+        this.userBl.load(10);
+    }
 
 
     /*load(num=5){

@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
+import {UserProxyConfig} from "./UserProxyConfig.model";
 
 /*export interface User{
     name:{ first:string,last:string},
@@ -9,12 +10,13 @@ import {Http} from "@angular/http";
 
 @Injectable()
 export class UsersProxy{
-    constructor(private http:Http){}
+    constructor(private http:Http,private config:UserProxyConfig){}
 
-    load(num=1){
+    load(num=1): Promise<any[]> | any[] {
         return this.http
-            .get(`https://randomuser.me/api/?results=${num}`)
+            .get(`${this.config.url}?results=${num}`)
             .map( resp => resp.json())
             .map( (json:any) => json.results as any[] )
+            .toPromise();
     }
 }

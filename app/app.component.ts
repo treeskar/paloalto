@@ -1,54 +1,21 @@
 /**
- * Created by Eyal on 24/04/2017.
+ * Created by Eyal on 27/04/2017.
  */
-import {Component, VERSION} from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: 'my-app',
-  styles : [`
-    .box{
-        
-    }
-  `],
+  styles : [],
   template: `
-    <div (click)="log($event)">       
-        <h1 [highlight]="color" >Hello world ${VERSION.full}</h1>
-        <button (click)="color='green'">green</button>
-        {{name}}
-        <div (click)="name = name + '!'" [innerHtml]="'<h1>EEEE</h1>'+name"></div>
-       
-        
-        <tabs>
-            <h4>tabs...</h4>
-            <tab title="users">
-                <users [num]="10"></users>
-            </tab>
-            <tab title="counter">
-                <counter [init]="100" [step]="3" (onValueChange)="name = name + $event"></counter>
-            </tab>
-            <tab title="todo list">
-                <todo-list></todo-list>
-            </tab>
-            <tab title="mdd forms">
-                <mdd></mdd>
-            </tab>
-        </tabs>
-        
-    </div>
+<div>
+  <nav>
+      <a routerLink="/home">Home</a> |
+      <a [routerLink]="['/users',{id:1,b:3}]">Users</a> |
+      <a routerLink="/todos">Todo List</a> |
+  </nav>
+  <div>
+      <router-outlet></router-outlet>
+  </div>  
+</div>
 `})
-export class AppComponent {
-    name:string = 'eyal vardi';
-
-    _color:string = 'blue';
-    /*@Input()*/
-    set color(value){ this._color = value; }
-    get color(){
-        return this._color;
-    }
-
-
-
-    log($event){
-        console.log(`event: ${JSON.stringify(event)}`);
-    }
-}
+export class AppComponent { }
