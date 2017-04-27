@@ -1,7 +1,7 @@
 /**
  * Created by Eyal on 26/04/2017.
  */
-import {Component} from "@angular/core";
+import {ApplicationRef, Component} from "@angular/core";
 import {TodoListService} from "./todo-list.service";
 import {TodoTask} from "./todoTask.model";
 
@@ -20,12 +20,19 @@ import {TodoTask} from "./todoTask.model";
  <h3>Todo List Demo <button (click)="service.update($event)">update</button></h3>   
  desc: <input type="text" #i/> <button (click)="add(i.value)">Add Task</button>
  <hr>   
-
-     <task 
-             *ngFor="let task of tasks; trackBy: trackByFn"
+    <!--<pre *ngFor="let task of tasks">
+        {{task | json }}
+    </pre>-->
+     <!--<task 
+             *ngFor="let task of tasks | mapValues"
              [source]="task">
          
-     </task>
+     </task>-->
+    <task
+            *ngFor="let task of tasks"
+            [source]="task">
+
+    </task>
 
  <hr>
  <h4>Total tasks: {{tasks.length}}, done: {{service.totalIsDone}}</h4>   
@@ -37,7 +44,9 @@ export class TodoListComponent {
         return this.service.tasks;
     }
 
-    constructor(private service:TodoListService){}
+    constructor(private service:TodoListService){
+        //appRef.tick();
+    }
 
     trackByFn(tab){
         return tab.id;

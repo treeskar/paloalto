@@ -9,6 +9,7 @@ import {TodoListModule} from "./todolist/todolist.module";
 import {TabsModule} from "./tabs/tabs.module";
 import {HighlightDirective} from "./highlight.directive";
 import {ValuesPipe} from "./custom.pipe";
+import {MyFormsModule} from "./forms/myForms.module";
 
 @NgModule({
     declarations:[
@@ -24,7 +25,8 @@ import {ValuesPipe} from "./custom.pipe";
     imports     :[
         BrowserModule,
         TodoListModule,
-        TabsModule
+        TabsModule,
+        MyFormsModule
     ],
     exports     :[]
 })

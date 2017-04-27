@@ -9,16 +9,21 @@ export class TodoListService{
 
     add(desc:string){
         let task = new TodoTask(desc);
-        this.tasks.push(task);
-debugger;
+       /* this.tasks.push(task);*/
         this.tasks2.set(task.id,task);
+        this.updateArray();
+    }
+
+    updateArray(){
+        this.tasks = Array.from(this.tasks2.values());
     }
 
     remove(id:number){
-        let index = this.tasks.findIndex(t=>t.id===id);
-        this.tasks.splice(index,1);
+       /* let index = this.tasks.findIndex(t=>t.id===id);
+        this.tasks.splice(index,1);*/
 
         this.tasks2.delete(id);
+        this.updateArray();
     }
 
     get totalIsDone(){

@@ -26,6 +26,9 @@ import {Component, VERSION} from "@angular/core";
             <tab title="todo list">
                 <todo-list></todo-list>
             </tab>
+            <tab title="mdd forms">
+                <mdd></mdd>
+            </tab>
         </tabs>
         
     </div>
