@@ -22,8 +22,11 @@ import {UserDetailsComponent} from "./userDetails.component";
     providers   :[
         UsersProxy,
         UserBl,
-        UserProxyConfig
-        //{provide:UsersProxy, useClass:UsersProxy}
+        UserProxyConfig,
+       /*{provide:UsersProxy, useFactory:(log:Loger)=>{
+           let id = 123;
+           return {}
+        }}*/
     ],
     bootstrap   :[],
     imports     :[

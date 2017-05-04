@@ -15,11 +15,15 @@ import {ValuesPipe} from "../custom.pipe";
         ValuesPipe
     ],
     /*providers   :[
-        TodoListService
+        TodoListService,
+        {provide:TodoListService,useValue:{} }
     ],*/
     bootstrap   :[],
     imports     :[
         CommonModule
+    ],
+    entryComponents:[
+        TodoListComponent
     ],
     exports     :[
         TodoListComponent

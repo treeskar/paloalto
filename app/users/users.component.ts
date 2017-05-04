@@ -4,6 +4,7 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {UsersProxy} from "./users.proxy.service";
 import {UserBl} from "./users.bl.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'users',
@@ -27,7 +28,8 @@ export class UsersComponent{
         this.userBl.load(val);
     };
 
-    constructor(private userBl:UserBl){
+    constructor(private userBl:UserBl, private route:ActivatedRoute){
+
         //this.load(this.num);
        // this.users = userBl.users;
     }

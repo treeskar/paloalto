@@ -18,4 +18,10 @@ import {Component} from "@angular/core";
   </div>  
 </div>
 `})
-export class AppComponent { }
+export class AppComponent {
+    routerCanDeactivate(){
+        return new Promise<boolean>(
+            (resolve, reject) => resolve(window.confirm('Continue?')));
+    }
+
+}

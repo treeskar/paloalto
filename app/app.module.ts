@@ -14,16 +14,17 @@ import {RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {AppContext} from "./app.context.service";
 import {SecurityContext} from "./securityContext.service";
-
-
-declare var System:any;
+import {appRoutes} from "./app.routes";
+import {CyberComponent} from "./cyber/cyber.component";
+import {TodoListComponent} from "./todolist/todo-list.component";
 
 @NgModule({
     declarations:[
         AppComponent,
         HomeComponent,
         CounterComponent,
-        HighlightDirective
+        HighlightDirective,
+        CyberComponent
 
     ],
     providers   :[
@@ -36,16 +37,7 @@ declare var System:any;
     imports     :[
         BrowserModule,
         HttpModule,
-        RouterModule.forRoot([
-            { path: 'home'  , component: HomeComponent},
-            { path:  'users',
-                canLoad:[SecurityContext],
-                loadChildren: async ()=> {
-                    let usersModuleJS = await System.import('./dist/users/users.module')
-                    return usersModuleJS.UsersModule;
-            } },
-            { path: '**' , redirectTo: 'home'}
-        ],{
+        RouterModule.forRoot(appRoutes,{
            useHash : true
         }),
 
